@@ -9,16 +9,16 @@ class CounterController extends GetxController {
   // }
 
   // use update and delete observer variable while you are using simple builder
-  // increment() {
-  //   count++;
-  //   update();
-  // }
-
-  // use update with array included ids for define unique id (simplebuilder only)
   increment() {
     count++;
-    update(['pramudya', 'haqi']);
+    update();
   }
+
+  // use update with array included ids for define unique id (simplebuilder only)
+  // increment() {
+  //   count++;
+  //   update(['pramudya', 'haqi']);
+  // }
 
   decrement() => count--;
 
