@@ -40,6 +40,62 @@ class DialogPage extends StatelessWidget {
               child: const Text('default dialog'),
             ),
             ElevatedButton(
+              onPressed: () {
+                // default dialog with getX
+                Get.defaultDialog(
+                    title: 'konfirmasi',
+                    barrierDismissible: false,
+                    middleText: "Dialog made in 3 lines of code",
+
+                    // ============== using default confirmation ==========
+                    // onConfirm: () {
+                    //   print('ok');
+                    //   Get.back();
+                    //   Get.snackbar('Success', 'Pesan telah diterima!');
+                    // },
+                    // onCancel: () {
+                    //   // cancel logic
+                    // },
+
+                    // ============== using custom confirmation. ex: ElevatedButton ==========
+                    confirm: ElevatedButton(
+                        onPressed: () {
+                          Get.back();
+                          Get.snackbar('success', 'diterima');
+                        },
+                        child: Text('accept')),
+                    cancel: ElevatedButton(
+                        onPressed: () {
+                          Get.back();
+                          Get.snackbar('canceled', 'dibatalkan');
+                        },
+                        child: Text('cancel')),
+
+                    // ============== using multiple confirmation with actions ==========
+                    actions: [
+                      ElevatedButton(
+                          onPressed: () {
+                            Get.back();
+                            Get.snackbar('canceled', 'dibatalkan');
+                          },
+                          child: Text('pil1')),
+                      ElevatedButton(
+                          onPressed: () {
+                            Get.back();
+                            Get.snackbar('canceled', 'dibatalkan');
+                          },
+                          child: Text('pil2')),
+                      ElevatedButton(
+                          onPressed: () {
+                            Get.back();
+                            Get.snackbar('canceled', 'dibatalkan');
+                          },
+                          child: Text('pil3')),
+                    ]);
+              },
+              child: const Text('default dialog 2'),
+            ),
+            ElevatedButton(
               onPressed: () async {
                 // alert dialog
                 bool? delete = await Get.dialog(AlertDialog(
@@ -111,6 +167,78 @@ class DialogPage extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Get.bottomSheet(Padding(
+            padding: EdgeInsets.only(
+                // bottom: MediaQuery.of(context).viewInsets.bottom
+                // bottom: MediaQuery.of(context).viewInsets.bottom
+                ),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              decoration: BoxDecoration(
+                color: Colors.grey.shade100,
+                  borderRadius:
+                      const BorderRadius.vertical(top: Radius.circular(20))),
+              child: Center(
+                child: ListView(
+                  children: const [
+                    TextField(
+                      decoration: InputDecoration(border: OutlineInputBorder()),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    TextField(
+                      decoration: InputDecoration(border: OutlineInputBorder()),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    TextField(
+                      decoration: InputDecoration(border: OutlineInputBorder()),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    TextField(
+                      decoration: InputDecoration(border: OutlineInputBorder()),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    TextField(
+                      decoration: InputDecoration(border: OutlineInputBorder()),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    TextField(
+                      decoration: InputDecoration(border: OutlineInputBorder()),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    TextField(
+                      decoration: InputDecoration(border: OutlineInputBorder()),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    TextField(
+                      decoration: InputDecoration(border: OutlineInputBorder()),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ));
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }
