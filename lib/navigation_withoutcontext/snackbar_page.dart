@@ -38,6 +38,32 @@ class SnackbarPage extends StatelessWidget {
               },
               child: const Text('custom snackbar'),
             ),
+            ElevatedButton(
+              onPressed: () {
+                // snackbar custom with getX
+                Get.snackbar(
+                  "Hey i'm a Get SnackBar!", // title
+                  "snackbar full custom using some parameters wich is backgroundgradient, border, duration, etc...", // message
+                  animationDuration: Duration(milliseconds: 200),
+                  backgroundColor: Colors.amber,
+                  backgroundGradient: const LinearGradient(colors: [
+                    Colors.purple,
+                    Colors.green,
+                  ]),
+                  borderWidth: 3,
+                  borderColor: Colors.red,
+                  onTap: (_) {
+                    print('Snackbar Clicked!');
+                  },
+                  icon: const Icon(
+                    Icons.ac_unit,
+                    color: Colors.white,
+                  ),
+                  shouldIconPulse: true, // blinking icon
+                );
+              },
+              child: const Text('custom snackbar 2'),
+            ),
           ],
         ),
       ),
